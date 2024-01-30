@@ -2,4 +2,4 @@
 
 CREATE OR REPLACE VIEW need_meeting AS
     SELECT name FROM students
-    WHERE score < 80 AND (last_meeting IS NULL or last_meeting < DATA_SUB(CURDATE(), INTERVAL 1 MONTH));
+    WHERE score < 80 AND (last_meeting IS NULL or last_meeting < DATA_SUB(NOW(), INTERVAL 1 MONTH));
