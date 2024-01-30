@@ -17,7 +17,7 @@ BEGIN
     ON corrections.project_id = projects.id
     WHERE user_id = u_id;
 
-    UPDATE user
+    UPDATE users
     SET average_score = sum_scores / sum_weight
     WHERE id - u_id;
 
