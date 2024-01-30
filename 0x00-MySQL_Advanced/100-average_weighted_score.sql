@@ -5,8 +5,8 @@ DELIMITER $$
 DROP PROCEDURE IF EXISTS ComputeAverageWeightedScoreForUser;
 CREATE PROCEDURE ComputeAverageWeightedScoreForUser ( IN u_id INT )
 BEGIN
-    DECLARE sum_weight FLOAT;
     DECLARE sum_scores FLOAT;
+    DECLARE sum_weight FLOAT;
 
     SELECT SUM(score * projects.weight) INTO sum_scores
     FROM corrections INNER JOIN projects
@@ -20,7 +20,7 @@ BEGIN
 
     UPDATE users
     SET average_score = sum_scores / sum_weight
-    WHERE id - u_id;
+    WHERE id = u_id;
 
 END $$
 
