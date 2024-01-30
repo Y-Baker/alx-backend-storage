@@ -20,3 +20,5 @@ BEGIN
     INSERT INTO corrections
     VALUES (user_id, project_id, score);
 END $$
+
+DELIMITER ;
