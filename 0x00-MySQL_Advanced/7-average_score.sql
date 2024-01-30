@@ -4,17 +4,17 @@
 
 DELIMITER $$
 
-CREATE PROCEDURE ComputeAverageScoreForUser ( IN user_id INT )
+CREATE PROCEDURE ComputeAverageScoreForUser ( IN u_id INT )
 BEGIN
-    DECLARE avg float;
+    DECLARE avg_score float;
 
-    SELECT AVG(score) INTO avg
+    SELECT AVG(score) INTO avg_score
     FROM corrections 
-    WHERE user_id = user_id;
+    WHERE user_id = u_id;
 
     UPDATE users
-    SET average_score = IFNULL(avg, 0)
-    WHERE id = user_id;
+    SET average_score = IFNULL(avg_score, 0)
+    WHERE id = u_id;
 
 END $$
 
