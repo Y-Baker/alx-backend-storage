@@ -2,6 +2,7 @@
 
 DELIMITER $$
 
+DROP PROCEDURE IF EXISTS ComputeAverageWeightedScoreForUser;
 CREATE PROCEDURE ComputeAverageWeightedScoreForUser ( IN u_id INT )
 BEGIN
     DECLARE sum_weight INT;
