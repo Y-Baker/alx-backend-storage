@@ -1,8 +1,8 @@
 <div align="center">
-  <img src="https://cdn.pixabay.com/photo/2013/07/12/17/22/database-152091_640.png" alt="storage" width="80"/>
+  <img src="https://1000logos.net/wp-content/uploads/2020/08/MongoDB-Logo.jpg" alt="storage" width="150"/>
 </div>
 
-[![Typing SVG](https://readme-typing-svg.herokuapp.com?font=Fira+Code&weight=1000&size=34&pause=1000&width=435&lines=MySQL+Advanced)](https://git.io/typing-svg)
+[![Typing SVG](https://readme-typing-svg.herokuapp.com?font=Fira+Code&weight=1000&size=34&pause=1000&width=435&lines=NoSQL+MongoDB)](https://git.io/typing-svg)
 
 
 ## Determine Ubuntu Version
