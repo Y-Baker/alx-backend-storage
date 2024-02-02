@@ -35,12 +35,14 @@ sudo service mongod start
 sudo mongod --dbpath ~/data/db
 ```
 - Connection should be on port 27017
-- [Follow this instructions](https://www.mongodb.com/docs/manual/tutorial/install-mongodb-on-ubuntu/)
+- For more details [Follow this instructions](https://www.mongodb.com/docs/manual/tutorial/install-mongodb-on-ubuntu/)
 <br />
 
 ## Run Mongo shell
 ```bash
 mongosh
+
+echo "show dbs" | mongosh
 ```
 <br />
 
