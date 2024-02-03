@@ -47,10 +47,15 @@ echo "show dbs" | mongosh
 <br />
 
 
-## MySQL cheatsheet
+## MongoDB cheatsheet
 - [Click here](https://github.com/michaeltreat/Mongo_quickstart)
 
 <br />
+
+## Work With MongoDB in Python
+```bash
+pip3 install pymongo
+```
 
 ## Authors :black_nib:
 
