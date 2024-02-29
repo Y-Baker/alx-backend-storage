@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="https://cdn.pixabay.com/photo/2013/07/12/17/22/database-152091_640.png" alt="python" width="80"/>
+  <img src="https://cdn.pixabay.com/photo/2013/07/12/17/22/database-152091_640.png" alt="storage" width="120"/>
 </div>
 
 [![Typing SVG](https://readme-typing-svg.herokuapp.com?font=Fira+Code&weight=1000&size=34&pause=1000&width=435&lines=MySQL+Advanced)](https://git.io/typing-svg)
