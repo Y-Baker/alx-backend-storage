@@ -14,3 +14,15 @@ class Cache:
         rand = str(uuid.uuid4())
         self._redis.set(rand, data)
         return rand
+
+    def get(self, key: str, fn: callable = None) -> Union[str, bytes, int, float]:
+        data = self._redis.get(key)
+        if fn:
+            return fn(data)
+        return data
+
+    def get_str(self, key: str) -> str:
+        return self.get(key, lambda data: data.decode('utf-8'))
+
+    def get_int(self, key: str) -> int:
+        return int(key)
