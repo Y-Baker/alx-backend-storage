@@ -6,8 +6,8 @@ import requests
 from functools import wraps
 from typing import Union, Callable, Optional
 
-
 _redis = redis.Redis()
+
 
 def count_url(method: Callable) -> Callable:
     """Decorator count the url in last 10 min"""
@@ -25,6 +25,8 @@ def count_url(method: Callable) -> Callable:
         return html
 
     return wrapper
+
+
 def get_page(url: str) -> str:
     """obtain the HTML content of a particular URL and returns it"""
 
