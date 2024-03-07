@@ -19,6 +19,7 @@ def replay(method: Callable) -> None:
     for i, o in zip(input_list, output_list):
         print(f"{name}(*{i.decode('utf-8')}) -> {o.decode('utf-8')}")
 
+
 def count_calls(method: Callable) -> Callable:
     """Decorator that takes a single method and returns a new method"""
     @wraps(method)
