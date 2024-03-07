@@ -6,6 +6,19 @@ from functools import wraps
 from typing import Union, Callable, Optional, Any
 
 
+def replay(method: Callable) -> None:
+    """Display the history of calls of a particular function"""
+    name = method.__qualname__
+    inputs = f"{name}:inputs"
+    outputs = f"{name}:outputs"
+    redis = method.__self__._redis
+    count = redis.get(name).decode('utf-8')
+    print(f"{name} was called {count} times:")
+    input_list = redis.lrange(inputs, 0, -1)
+    output_list = redis.lrange(outputs, 0, -1)
+    for i, o in zip(input_list, output_list):
+        print(f"{name}(*{i.decode('utf-8')}) -> {o.decode('utf-8')}")
+
 def count_calls(method: Callable) -> Callable:
     """Decorator that takes a single method and returns a new method"""
     @wraps(method)
