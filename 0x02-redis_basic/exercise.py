@@ -3,9 +3,9 @@
 import redis
 import uuid
 from functools import wraps
-from typing import Union
+from typing import Union, Callable, Optional, Any
 
-def count_calls(method: callable) -> callable:
+def count_calls(method: Callable) -> Callable:
     """Decorator that takes a single method and returns a new method"""
     @wraps(method)
     def wrapper(self, *args, **kwargs):
@@ -26,7 +26,7 @@ class Cache:
         self._redis.set(rand, data)
         return rand
 
-    def get(self, key: str, fn: callable = None) -> Union[str, bytes, int, float]:
+    def get(self, key: str, fn: Optional[Callable] = None) -> Any:
         data = self._redis.get(key)
         if fn:
             return fn(data)
@@ -36,7 +36,9 @@ class Cache:
         return self.get(key, lambda data: data.decode('utf-8'))
 
     def get_int(self, key: str) -> int:
-        return int(key)
+        try:
+            value = self.get(key, lambda data: int(data.decode('utf-8')))
+        except Exception:
+            value = 0
+        return value
 
-    def incr(self, key: str) -> int:
-        return self._redis.incry(key)
