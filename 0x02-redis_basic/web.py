@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
 """redis module"""
 
 import redis
@@ -26,7 +26,7 @@ def count_url(method: Callable) -> Callable:
 
     return wrapper
 
-
+@count_url
 def get_page(url: str) -> str:
     """obtain the HTML content of a particular URL and returns it"""
 
