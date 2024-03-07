@@ -43,27 +43,33 @@ def call_history(method: Callable) -> Callable:
 
 
 class Cache:
+    """Cache class"""
     def __init__(self) -> None:
+        """Constructor method"""
         self._redis = redis.Redis()
         self._redis.flushdb()
 
     @count_calls
     @call_history
     def store(self, data: Union[str, bytes, int, float]) -> str:
+        """Store method"""
         rand = str(uuid.uuid4())
         self._redis.set(rand, data)
         return rand
 
     def get(self, key: str, fn: Optional[Callable] = None) -> Any:
+        """Get method"""
         data = self._redis.get(key)
         if fn:
             return fn(data)
         return data
 
     def get_str(self, key: str) -> str:
+        """Get string method"""
         return self.get(key, lambda data: data.decode('utf-8'))
 
     def get_int(self, key: str) -> int:
+        """Get int method"""
         try:
             value = self.get(key, lambda data: int(data.decode('utf-8')))
         except Exception:
